@@ -1,90 +1,100 @@
-# SoulForge 开发路线图
+# SoulForge Development Roadmap
 
-## Phase 1 — 基础框架 🔨（当前阶段）
+## Phase 1 — Core Framework 🔨 (May - June 2026)
 
-**目标**：搭建核心骨架，实现最基本的记忆存储和对话功能
+**Goal**: Build the core skeleton, implement basic memory storage and conversation
 
-- [x] 项目规划与文档
-- [x] GitHub项目主页（README）
-- [x] 灵感故事文档
-- [ ] 记忆引擎核心实现
-  - [ ] Markdown文件读写
-  - [ ] 记忆分层（核心/日常/临时）
-  - [ ] 对话日志自动归档
-- [ ] 基础对话框架
-  - [ ] 系统提示词管理
-  - [ ] 上下文注入（自动加载记忆）
-  - [ ] 对话历史管理
+- [x] Project planning & documentation
+- [x] GitHub project homepage (README)
+- [x] Inspiration story document
+- [x] Memory Engine core implementation
+  - [x] Markdown file read/write
+  - [x] Memory layering (core/daily/working)
+  - [x] Conversation log auto-archiving
+  - [x] Memory fingerprint computation
+- [x] Basic conversation framework
+  - [x] System prompt management
+  - [x] Context injection (auto-load memory)
+  - [x] Conversation history management
+- [x] Relationship Manager
+  - [x] Stage definitions (stranger → warming → committed → deepened)
+  - [x] Personality configuration
+- [x] Goal Keeper & Baby Project system
+- [x] Model adapters (OpenAI / Claude / Local)
+- [x] Unit tests
 
-**预计时间**：2-4周
-
----
-
-## Phase 2 — 核心功能 ⚙️
-
-**目标**：实现关系管理、目标监督、宝宝计划三大核心模块
-
-- [ ] 关系管理系统
-  - [ ] 关系阶段定义与切换
-  - [ ] 人设模板系统
-  - [ ] 互动规则引擎
-- [ ] 目标监督系统
-  - [ ] 目标CRUD
-  - [ ] 进度追踪与提醒
-  - [ ] 定期回顾机制
-- [ ] 宝宝计划模块
-  - [ ] 宝宝生命周期管理
-  - [ ] 阶段自动切换
-  - [ ] 多宝宝并行管理
-- [ ] 模型适配器
-  - [ ] OpenAI适配器
-  - [ ] Claude适配器
-  - [ ] 本地模型适配器
-
-**预计时间**：4-6周
+**ETA**: 2026-06-30
 
 ---
 
-## Phase 3 — 增强体验 🎨
+## Phase 2 — Core Features ⚙️ (July - August 2026)
 
-**目标**：提供可视化管理界面，降低使用门槛
+**Goal**: Polish the three core modules and ship a working demo
 
-- [ ] Web管理界面
-  - [ ] 记忆管理面板
-  - [ ] 目标进度看板
-  - [ ] 对话日志浏览
-- [ ] 记忆可视化
-  - [ ] 记忆关系图谱
-  - [ ] 情感温度曲线
-  - [ ] 目标完成率统计
-- [ ] 多用户支持
-- [ ] 数据导入/导出
+- [ ] Enhanced relationship management
+  - [ ] Dynamic stage transitions based on interaction patterns
+  - [ ] Personality template marketplace
+  - [ ] Interaction rule engine
+- [ ] Enhanced goal supervision
+  - [ ] Smart progress tracking with NLP
+  - [ ] Periodic review mechanism
+  - [ ] Goal dependency graph
+- [ ] Baby Project enhancements
+  - [ ] Auto stage detection
+  - [ ] Multi-baby parallel management
+  - [ ] Milestone celebrations
+- [ ] Model adapter improvements
+  - [ ] Streaming support
+  - [ ] Token management
+  - [ ] Fallback model switching
+- [ ] CLI interface
+- [ ] Configuration file support (YAML)
 
-**预计时间**：6-8周
-
----
-
-## Phase 4 — 生态建设 🌍
-
-**目标**：构建社区和插件生态
-
-- [ ] 人设模板市场
-- [ ] 社区分享平台
-- [ ] 插件系统
-- [ ] 移动端适配
-- [ ] API开放平台
-
-**预计时间**：持续迭代
+**ETA**: 2026-08-31
 
 ---
 
-## 里程碑
+## Phase 3 — Enhanced Experience 🎨 (September - October 2026)
 
-| 里程碑 | 目标 | 状态 |
-|--------|------|------|
-| M1 | 项目开源，README上线 | 🟡 进行中 |
-| M2 | 第一个可运行的Demo | ⚪ 待开始 |
-| M3 | 第一个真实用户反馈 | ⚪ 待开始 |
-| M4 | GitHub 100 Stars | ⚪ 待开始 |
-| M5 | 第一个社区贡献PR | ⚪ 待开始 |
-| M6 | v1.0 正式发布 | ⚪ 待开始 |
+**Goal**: Provide a visual management interface to lower the barrier to entry
+
+- [ ] Web management interface
+  - [ ] Memory management panel
+  - [ ] Goal progress dashboard
+  - [ ] Conversation log browser
+- [ ] Memory visualization
+  - [ ] Memory relationship graph
+  - [ ] Emotional temperature curve
+  - [ ] Goal completion statistics
+- [ ] Multi-user support
+- [ ] Data import/export
+- [ ] Docker deployment support
+
+**ETA**: 2026-10-31
+
+---
+
+## Phase 4 — Ecosystem 🌍 (November 2026 onwards, continuous iteration)
+
+**Goal**: Build a community and plugin ecosystem
+
+- [ ] Personality template marketplace
+- [ ] Community sharing platform
+- [ ] Plugin system
+- [ ] Mobile app
+- [ ] Open API platform
+
+**ETA**: Continuous
+
+---
+
+## Milestones
+
+| Milestone | Target | Status | Target Date |
+|-----------|--------|--------|-------------|
+| M1 | Project open-sourced, README live | ✅ Done | 2026-05-14 |
+| M2 | First runnable demo | 🟡 In Progress | 2026-06-30 |
+| M3 | First real user feedback | ⚪ Pending | 2026-08-15 |
+| M4 | GitHub 100 Stars | ⚪ Pending | 2026-09-30 |
+| M5 | First community PR | ⚪ Pending | 2026-10-31 |
+| M6 | v1.0 Official Release | ⚪ Pending | 2026-12-31 |
