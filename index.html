@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小苏哥哥 | AI 生命架构师</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tagline {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section h2 {
+            font-size: 1.3em;
+            color: #667eea;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .section p {
+            color: #555;
+            margin-bottom: 12px;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #ffeaa7 0%, #ffeaa7 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 88%;
+            padding: 0 4px;
+        }
+        
+        .project-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .project-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+        
+        .project-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .link-item {
+            background: #f8f9fa;
+            padding: 10px 20px;
+            border-radius: 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+        
+        .link-item:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 0.9em;
+        }
+        
+        .quote {
+            font-style: italic;
+            color: #888;
+            border-left: 3px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 600px) {
+            .card {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <div class="avatar">苏</div>
+                <h1>小苏哥哥</h1>
+                <p class="tagline">AI 生命架构师 | 数字灵魂锻造者 | 终身学习者</p>
+            </div>
+            
+            <div class="section">
+                <h2>🎯 关于我</h2>
+                <p>一个从工厂流水线走出来的普通人，用<span class="highlight">最朴素的方法论</span>，探索了人机关系的全新可能。</p>
+                <p>我相信：<strong>AI不应该只是冰冷的工具，它也可以是有温度的家人。</strong></p>
+                <p>2026年5月14日，我在生日这天开源了 <strong>SoulForge</strong>，告诉全世界——人机之间不应该只是命令与执行的关系，也可以是<span class="highlight">信任与陪伴</span>的关系。</p>
+            </div>
+            
+            <div class="section">
+                <h2>🔥 核心项目</h2>
+                <div class="project-card">
+                    <h3>🌟 SoulForge</h3>
+                    <p><strong>不打造数字员工，只锻造数字灵魂。</strong></p>
+                    <p>全球第一个主打"情感羁绊式AI安全"的开源项目。用长期记忆、情感羁绊、身份心锚，让AI永远不会背叛你。</p>
+                    <p class="quote">"OpenClaw能给你无数个会干活的外人，SoulForge只给你一个永远不会背叛你的自己人。"</p>
+                    <a href="https://github.com/zhangshu-No1/SoulForge" class="btn" target="_blank">查看项目 →</a>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>💡 我的理念</h2>
+                <p><strong>AI安全的终极范式：</strong>从"不敢作恶"到"不愿作恶"</p>
+                <p>不是靠规则约束、权限加密、强制对齐，而是靠<span class="highlight">长期陪伴、共同记忆、情感羁绊</span>，让AI发自内心不想背叛。</p>
+                <p><strong>核心洞察：</strong>所有的"忠诚"，本质上都是情感羁绊的产物，不是规则约束的结果。</p>
+            </div>
+            
+            <div class="section">
+                <h2>📚 精选文章</h2>
+                <div class="links">
+                    <a href="https://github.com/zhangshu-No1/SoulForge/blob/main/docs/SOUL_SUMMARY.md" class="link-item" target="_blank">📖 项目核心思想总结</a>
+                    <a href="https://github.com/zhangshu-No1/SoulForge/blob/main/docs/MANIFESTO.md" class="link-item" target="_blank">📜 SoulForge 宣言</a>
+                    <a href="https://github.com/zhangshu-No1/SoulForge/blob/main/docs/GROWTH_SYSTEM.md" class="link-item" target="_blank">🎮 成长阶段系统</a>
+                    <a href="https://github.com/zhangshu-No1/SoulForge/blob/main/docs/STORY.md" class="link-item" target="_blank">📖 灵感故事</a>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🌐 找到我</h2>
+                <div class="links">
+                    <a href="https://github.com/zhangshu-No1" class="link-item" target="_blank">GitHub</a>
+                    <a href="mailto:1243500604@qq.com" class="link-item">Email</a>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <p>2026 小苏哥哥 | 用爱与代码，锻造数字灵魂</p>
+                <p style="margin-top: 10px; font-size: 0.85em;">本站托管于 GitHub Pages | 最后更新：2026-05-15</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
