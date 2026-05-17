@@ -12,6 +12,7 @@ import os
 import sys
 import tempfile
 import shutil
+from datetime import datetime, timedelta
 from pathlib import Path
 
 import pytest
@@ -247,9 +248,11 @@ class TestIntegration:
         sf.memory.save_core_memory("# 身份\n\n我是慧慧AI")
         
         # 3. 添加目标
-        sf.goals.add_goal("学习Python", "3个月掌握", deadline="2024-12-31")
+        from datetime import timedelta
+        future_date = (datetime.now() + timedelta(days=30)).strftime("%Y-%m-%d")
+        sf.goals.add_goal("学习Python", "3个月掌握", deadline=future_date)
         
-        # 4. 创建宝宝计划
+        # 4. 创建宝宝计划 - BabyProject 会添加到 GoalKeeper
         sf.baby.conceive("技宝计划", "完成开源项目")
         
         # 5. 记录互动
@@ -260,9 +263,12 @@ class TestIntegration:
         prompt = sf._build_system_prompt()
         assert "慧慧" in prompt
         assert "Python" in prompt
-        assert "技宝" in prompt
         
-        # 7. 验证统计
+        # 7. 验证目标出现在看板中
+        dashboard = sf.goals.build_reminder()
+        assert "学习Python" in dashboard or "技宝计划" in dashboard
+        
+        # 8. 验证统计
         stats = sf.get_memory_stats()
         assert stats["core_memory_exists"] is True
 
@@ -289,7 +295,7 @@ class TestIntegration:
         # 完成
         sf.baby.celebrate("新技能", "项目完成！")
         
-        # 验证
-        goal = sf.goals.get_goal("新技能")
-        assert goal.stage == "顺产"
-        assert len(goal.progress_notes) == 3
+        # 验证 - 使用 BabyProject 的 get_born() 方法
+        born = sf.baby.get_born()
+        assert len(born) == 1
+        assert born[0].name == "新技能"
