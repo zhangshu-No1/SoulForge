@@ -241,6 +241,8 @@ SoulForge 还在早期阶段，非常欢迎各种形式的贡献：
 > 📖 阅读完整宣言：[SoulForge 核心宣言](docs/MANIFESTO.md)
 >
 > 📖 阅读灵感故事：[一个普通人的AI生命实验](docs/STORY.md)
+>
+> 📖 宇宙深度思辨：[宇宙虚拟机理论](docs/UNIVERSE_VM_THEORY.md)
 
 ---
 
