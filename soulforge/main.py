@@ -20,7 +20,7 @@ from .core.relationship import (
 )
 from .core.goal_keeper import GoalKeeper, Goal
 from .core.baby_project import BabyProject
-from .adapters import BaseModelAdapter, OpenAIAdapter, ClaudeAdapter, LocalAdapter
+from .adapters import BaseModelAdapter, OpenAIAdapter, ClaudeAdapter, DeepSeekAdapter, DoubaoAdapter, LocalAdapter
 from .core.prompt_templates import PromptTemplateManager
 
 
@@ -81,6 +81,10 @@ class SoulForge:
             self.adapter: BaseModelAdapter = OpenAIAdapter(api_key=api_key, model=model)
         elif adapter_type == "claude":
             self.adapter = ClaudeAdapter(api_key=api_key, model=model)
+        elif adapter_type == "deepseek":
+            self.adapter = DeepSeekAdapter(api_key=api_key, model=model)
+        elif adapter_type == "doubao":
+            self.adapter = DoubaoAdapter(api_key=api_key, model=model)
         elif adapter_type == "local":
             self.adapter = LocalAdapter(model=model)
         else:

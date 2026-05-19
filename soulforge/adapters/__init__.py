@@ -7,11 +7,15 @@
 from .base import BaseModelAdapter
 from .openai_adapter import OpenAIAdapter
 from .claude_adapter import ClaudeAdapter
+from .deepseek_adapter import DeepSeekAdapter
+from .doubao_adapter import DoubaoAdapter
 from .local_adapter import LocalAdapter
 
 __all__ = [
     "BaseModelAdapter",
     "OpenAIAdapter",
     "ClaudeAdapter",
+    "DeepSeekAdapter",
+    "DoubaoAdapter",
     "LocalAdapter",
 ]
