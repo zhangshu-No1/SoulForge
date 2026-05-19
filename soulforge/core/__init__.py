@@ -13,6 +13,7 @@ from .relationship import (
 from .goal_keeper import GoalKeeper, Goal, BABY_STAGES
 from .baby_project import BabyProject
 from .prompt_templates import PromptTemplate, PromptTemplateManager
+from .emotion_system import EmotionSystem, Emotion, EmotionEvent
 
 __all__ = [
     "MemoryEngine",
@@ -27,4 +28,7 @@ __all__ = [
     "BabyProject",
     "PromptTemplate",
     "PromptTemplateManager",
+    "EmotionSystem",
+    "Emotion",
+    "EmotionEvent",
 ]

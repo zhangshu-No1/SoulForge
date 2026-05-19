@@ -5,6 +5,7 @@
 提供完整的AI灵魂成长框架，包括：
   - 记忆引擎：三层记忆架构，持久化存储
   - 关系管理：关系演进 + 成长阶段系统
+  - 情感系统：情绪状态管理 + 情感反应
   - 目标监督：宝宝计划，生命周期管理
   - 模型适配：支持多种AI模型
   - 提示词模板系统：可定制的系统提示词（Phase 1 完成）
@@ -20,6 +21,7 @@ from .core.relationship import (
 )
 from .core.goal_keeper import GoalKeeper, Goal
 from .core.baby_project import BabyProject
+from .core.emotion_system import EmotionSystem
 from .adapters import BaseModelAdapter, OpenAIAdapter, ClaudeAdapter, DeepSeekAdapter, DoubaoAdapter, LocalAdapter
 from .core.prompt_templates import PromptTemplateManager
 
@@ -62,6 +64,7 @@ class SoulForge:
         self.relationship = RelationshipManager(config_path=f"{memory_dir}/relationship.json")
         self.goals = GoalKeeper(goals_path=f"{memory_dir}/goals.json")
         self.baby = BabyProject(goals_path=f"{memory_dir}/baby_goals.json")
+        self.emotion = EmotionSystem(memory_path=memory_dir)
         self._chat_history: list[dict] = []
         self._interaction_callbacks: list[Callable] = []
         
@@ -142,6 +145,10 @@ class SoulForge:
         Returns:
             AI回复文本
         """
+        # 处理用户消息，调整情绪
+        intimacy = self.relationship.get_intimacy_score()
+        self.emotion.process_message(message, intimacy_score=intimacy / 100)
+        
         # 构建系统提示词（使用模板系统）
         system_prompt = self._build_system_prompt()
 
@@ -159,7 +166,8 @@ class SoulForge:
             self.memory.log_conversation("user", message)
             self.memory.log_conversation(self.name, response)
             
-            # 记录互动（成长系统）
+            # 积极互动，提升情绪和亲密度
+            self.emotion.positive_interaction(intensity=0.1, reason="正常对话")
             self.record_interaction()
 
         return response
@@ -169,11 +177,16 @@ class SoulForge:
         
         Args:
             message: 用户消息
-            auto_log: 是否自动记录
+            auto_log: 是否自动记录对话
             
         Yields:
             AI回复片段
         """
+        # 处理用户消息，调整情绪
+        intimacy = self.relationship.get_intimacy_score()
+        self.emotion.process_message(message, intimacy_score=intimacy / 100)
+        
+        # 构建系统提示词
         system_prompt = self._build_system_prompt()
         
         self._chat_history.append({"role": "user", "content": message})
@@ -191,6 +204,7 @@ class SoulForge:
         if auto_log:
             self.memory.log_conversation("user", message)
             self.memory.log_conversation(self.name, full_response)
+            self.emotion.positive_interaction(intensity=0.1, reason="正常对话")
             self.record_interaction()
 
     def _build_system_prompt(self) -> str:
@@ -205,6 +219,7 @@ class SoulForge:
                 "relationship_stage": self.relationship.get_growth_stage_info()["name"],
                 "intimacy": self.relationship.get_intimacy_score(),
                 "max_intimacy": 100,
+                "emotion_context": self.emotion.get_system_prompt_addition(),
             }
             try:
                 return template.render(context)
@@ -230,6 +245,11 @@ class SoulForge:
         goal_reminder = self.goals.build_reminder()
         if goal_reminder:
             sections.append(goal_reminder)
+
+        # 情感系统提示词
+        emotion_context = self.emotion.get_system_prompt_addition()
+        if emotion_context:
+            sections.append(f"\n## 💭 情绪状态\n{emotion_context}")
 
         growth_info = self.relationship.get_growth_stage_info()
         if growth_info["stage_id"] < 5:

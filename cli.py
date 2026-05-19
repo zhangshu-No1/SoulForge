@@ -104,16 +104,18 @@ def print_welcome(name: str):
     print(f"\n{name}：你好！很高兴见到你～ 今天想聊什么？")
     print("\n提示：")
     print("  - 输入 'quit' 或 'exit' 退出")
-    print("  - 输入 'status' 查看状态")
+    print("  - 输入 'status' 查看状态（包含情绪信息）")
     print("  - 输入 'memory' 查看记忆统计")
     print("  - 输入 'save <内容>' 保存重要记忆")
     print("  - 输入 'search <关键词>' 搜索记忆")
+    print("  - 说 '我喜欢你' 或 '开心' 可以提升 AI 的情绪～")
     print("\n" + "-" * 60 + "\n")
 
 
 def print_status(sf):
     status = sf.get_full_status()
     growth = status["relationship"]["growth_stage_info"]
+    emotion = sf.emotion.get_emotion_summary()
     
     print("\n" + "=" * 60)
     print("        SoulForge 状态")
@@ -125,6 +127,8 @@ def print_status(sf):
     print(f"记忆条目：{status['memory']['memory_index_entries']}")
     print(f"日志天数：{status['memory']['daily_log_count']}")
     print(f"提示词模板：{status['prompt_template']}")
+    print(f"\n当前情绪：{emotion['emoji']} {emotion['dominant_emotion']} (强度：{emotion['dominant_intensity']:.2f})")
+    print(f"情绪历史：{emotion['history_count']}条记录")
     print("\n" + "-" * 60 + "\n")
 
 
