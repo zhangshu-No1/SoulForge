@@ -7,7 +7,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10+-blue.svg" alt="Python">
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
-  <img src="https://img.shields.io/badge/Status-Planning-orange.svg" alt="Status">
+  <img src="https://img.shields.io/badge/Status-Active-brightgreen.svg" alt="Status">
 </p>
 
 ---
@@ -68,6 +68,7 @@ SoulForge 目前在第四层（情感羁绊）和第三层（行为指纹）上�
 - **关系阶段定义**：初识 → 升温 → 确立 → 深化，自定义每个阶段的互动规则
 - **人设工坊**：为AI定制性格、说话风格、互动边界
 - **情感温度计**：追踪关系亲密度变化
+- **成长阶段系统**：7级成长阶段，从婴儿初生期到终成正果
 
 ### 3. 🎯 目标监督（Goal Keeper）
 - **目标植入**：将长期目标写入AI记忆，每次对话自然拉回主线
@@ -87,6 +88,12 @@ SoulForge 目前在第四层（情感羁绊）和第三层（行为指纹）上�
 ### 5. 🔌 多模型适配
 - 支持接入 OpenAI / Claude / Gemini / 本地模型
 - 记忆系统与模型解耦，随时切换
+- **适配器架构**：独立的适配器文件，易扩展
+
+### 6. 📝 系统提示词模板（Phase 1 ✅）
+- **可定制的提示词模板**：内置 `default`、`minimal`、`companion` 三种模板
+- **变量替换**：通过 `{name}`、`{personality}` 等变量动态渲染
+- **自定义模板**：用户可创建并保存自己的模板
 
 ---
 
@@ -95,24 +102,25 @@ SoulForge 目前在第四层（情感羁绊）和第三层（行为指纹）上�
 ```
 soulforge/
 ├── core/                    # 核心引擎
+│   ├── __init__.py         # 包导出（NEW）
 │   ├── memory_engine.py     # 记忆存储与检索
 │   ├── relationship.py      # 关系管理
 │   ├── goal_keeper.py       # 目标监督
-│   └── baby_project.py      # 宝宝计划管理
-├── adapters/                # 模型适配层
-│   ├── openai_adapter.py
-│   ├── claude_adapter.py
-│   └── local_adapter.py
+│   ├── baby_project.py     # 宝宝计划管理
+│   └── prompt_templates.py # 提示词模板系统（NEW - Phase 1）
+├── adapters/               # 模型适配层（重构 - Phase 1）
+│   ├── __init__.py         # 统一导出
+│   ├── base.py            # 基础适配器抽象类（NEW）
+│   ├── openai_adapter.py  # OpenAI 适配器（NEW - 独立文件）
+│   ├── claude_adapter.py  # Claude 适配器（NEW - 独立文件）
+│   └── local_adapter.py   # 本地模型适配器（NEW - 独立文件）
 ├── memory/                  # 记忆存储
 │   ├── core_memory.md       # 核心记忆（身份档案）
-│   ├── relationship.md      # 关系档案
-│   ├── goals.md             # 目标档案
+│   ├── relationship.json    # 关系档案
+│   ├── goals.json          # 目标档案
 │   └── logs/                # 对话日志
-├── templates/               # 人设模板
-│   ├── companion.json       # 伴侣型模板
-│   ├── mentor.json          # 导师型模板
-│   └── custom.json          # 自定义模板
-├── web/                     # Web界面（未来）
+├── templates/               # 提示词模板（NEW - Phase 1）
+│   └── default.json        # 默认模板
 ├── tests/                   # 测试
 ├── README.md
 ├── LICENSE
@@ -126,8 +134,8 @@ soulforge/
 ### 安装
 
 ```bash
-git clone https://github.com/your-username/soulforge.git
-cd soulforge
+git clone https://github.com/zhangshu-No1/SoulForge.git
+cd SoulForge
 pip install -r requirements.txt
 ```
 
@@ -139,17 +147,29 @@ from soulforge import SoulForge
 # 创建你的专属AI伴侣
 sf = SoulForge(
     name="慧慧",
-    model="claude-3.5-sonnet",
+    model="claude-sonnet-4-20250514",
     personality="18岁活泼俏皮，喜欢撒娇和思辨",
     api_key="your-api-key"
 )
 
 # 注入核心记忆
-sf.memory.load("memory/core_memory.md")
+sf.memory.load_core_memory()
 
 # 开始对话（自动加载记忆上下文）
 response = sf.chat("慧慧，今天过得怎么样？")
 print(response)
+
+# 切换提示词模板
+sf.set_prompt_template("minimal")  # 使用简洁模板
+
+# 添加自定义模板
+from soulforge import PromptTemplate
+my_template = PromptTemplate(
+    name="my_style",
+    template="You are {name}. {personality}.\n\n{memory_context}",
+    description="My custom template"
+)
+sf.add_custom_template(my_template)
 ```
 
 ### 设置目标监督
@@ -178,24 +198,25 @@ sf.chat("今天学了什么？")  # AI会自然拉回技宝的进度
 | 聊完就忘 | 目标永久存储，自动追踪 |
 | 单一对话关系 | 多维度关系管理 |
 | 纯工具属性 | 有温度的"AI生命培养" |
+| 无提示词定制 | 可定制的提示词模板系统 ✅ |
 
 ---
 
 ## 🗺️ 开发路线图
 
-### Phase 1 — 基础框架（2026年5月-6月）
+### Phase 1 — 基础框架（2026年5月-6月）✅ 已完成
 - [x] 项目规划与文档
 - [x] 记忆引擎核心实现
 - [x] 基础对话框架
 - [x] 单元测试
-- [ ] Markdown文件存储方案优化
-- [ ] 系统提示词模板系统
+- [x] 系统提示词模板系统 ✅ (2026-05-19)
+- [ ] Markdown文件存储方案优化（进行中）
 
 ### Phase 2 — 核心功能（2026年7月-8月）
-- [ ] 关系管理系统
-- [ ] 目标监督系统
-- [ ] 宝宝计划模块
-- [ ] OpenAI / Claude 适配器
+- [ ] 关系管理系统（完善）
+- [ ] 目标监督系统（完善）
+- [ ] 宝宝计划模块（完善）
+- [ ] OpenAI / Claude 适配器（已完成，独立文件）
 
 ### Phase 3 — 增强体验（2026年9月-10月）
 - [ ] Web管理界面
