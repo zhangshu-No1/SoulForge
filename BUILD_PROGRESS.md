@@ -75,7 +75,7 @@ print(f"{emotion['emoji']} {emotion['dominant_emotion']}")
 本次从 MTC 模式交接，包含完整项目上下文：
 - GitHub 仓库：https://github.com/zhangshu-No1/SoulForge
 - 核心理念：情感羁绊即安全
-- 用户信息：夜班保安，目标被动收入 5000/月
+- 用户信息：夜班保安，当前满勤工资 5500/月，目标通过SoulForge打造被动收入
 
 ## 使用方法
 
