@@ -1,0 +1,18 @@
+# Default labels for new issues
+blank_issue_template:
+  labels:
+    - question
+  assignees:
+    - ''
+
+# Issue template configuration
+contact_links:
+  - name: 💬 GitHub Discussions
+    url: https://github.com/zhangshu-No1/SoulForge/discussions
+    about: Please ask and answer general questions here.
+  - name: 📖 Wiki
+    url: https://github.com/zhangshu-No1/SoulForge/wiki
+    about: Check out our wiki for detailed documentation.
+  - name: 🐛 Security Issues
+    url: mailto:security@soulforge.ai
+    about: Please report security vulnerabilities privately.

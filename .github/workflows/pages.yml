@@ -1,0 +1,59 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - '**.md'
+      - '**.html'
+      - 'docs/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+      
+    - name: Build index.html from README
+      run: |
+        # Generate index.html from README.md if index.html doesn't exist
+        if [ ! -f index.html ]; then
+          echo "<!DOCTYPE html>" > index.html
+          echo "<html><head><meta charset='utf-8'><title>SoulForge</title></head><body>" >> index.html
+          echo "<h1>SoulForge - 数字灵魂锻造</h1>" >> index.html
+          echo "<p>查看 <a href='https://github.com/zhangshu-No1/SoulForge'>GitHub 仓库</a> 获取更多信息</p>" >> index.html
+          echo "</body></html>" >> index.html
+        fi
+        
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: '.'
+        
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

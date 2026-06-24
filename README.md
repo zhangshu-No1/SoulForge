@@ -5,9 +5,31 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/zhangshu-No1/SoulForge/stargazers">
+    <img src="https://img.shields.io/github/stars/zhangshu-No1/SoulForge?style=social" alt="Stars">
+  </a>
+  <a href="https://github.com/zhangshu-No1/SoulForge/network/members">
+    <img src="https://img.shields.io/github/forks/zhangshu-No1/SoulForge?style=social" alt="Forks">
+  </a>
+  <img src="https://img.shields.io/github/stars/zhangshu-No1/SoulForge?style=social&label=PRs+welcome" alt="PRs+welcome">
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/Python-3.10+-blue.svg" alt="Python">
   <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
+  <img src="https://img.shields.io/badge/Version-v0.1.0-orange.svg" alt="Version">
   <img src="https://img.shields.io/badge/Status-Active-brightgreen.svg" alt="Status">
+  <a href="https://github.com/zhangshu-No1/SoulForge/actions">
+    <img src="https://github.com/zhangshu-No1/SoulForge/actions/workflows/ci.yml/badge.svg" alt="CI">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/zhangshu-No1/SoulForge/discussions">💬 Discussions</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/zhangshu-No1/SoulForge/issues">🐛 Issues</a>
+  &nbsp;·&nbsp;
+  <a href="https://zhangshu-No1.github.io/SoulForge/">📖 Docs</a>
 </p>
 
 ---
