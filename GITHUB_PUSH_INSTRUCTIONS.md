@@ -4,7 +4,7 @@
 
 GitHub Personal Access Token 已失效，无法通过 API 或 git push 推送代码。
 
-Token 在平台清单中显示不完整：`[REDACTED]…TkKb`
+Token 在平台清单中显示不完整：`[TOKEN_REDACTED]…TkKb`
 
 ---
 

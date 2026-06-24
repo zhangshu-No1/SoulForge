@@ -6,7 +6,7 @@
 
 ## ⚠️ 问题说明
 
-GitHub Token (`[REDACTED]`) API 返回 "Bad credentials"
+GitHub Token (`[TOKEN_REDACTED]`) API 返回 "Bad credentials"
 
 可能原因：
 1. Token 已过期
