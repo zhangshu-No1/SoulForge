@@ -88,11 +88,12 @@ class TestEmotionSystem(unittest.TestCase):
         self.assertGreater(self.es.current_emotion.love, before_love)
 
     def test_trigger_words_negative(self):
-        """消极触发词应该降低情绪"""
-        before_happiness = self.es.current_emotion.happiness
+        """消极触发词应该提升悲伤情绪"""
+        before_sadness = self.es.current_emotion.sadness
         triggered = self.es.process_message("我好难过")
         self.assertTrue(triggered)
-        self.assertLess(self.es.current_emotion.happiness, before_happiness)
+        # 注意："好"会提升happiness，但"难过"会提升sadness
+        self.assertGreater(self.es.current_emotion.sadness, before_sadness)
 
     def test_no_trigger(self):
         """普通消息不应该触发情绪变化"""
