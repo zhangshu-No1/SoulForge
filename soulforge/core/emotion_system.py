@@ -224,7 +224,7 @@ class EmotionSystem:
                 'emotion_after': event.emotion_after.to_dict(),
                 'trigger': event.trigger,
             }
-            for event in self.history_history
+            for event in self.emotion_history
         ]
         # 只保留最近100条
         if len(data) > 100:
