@@ -1,303 +1,146 @@
-# Contributing to SoulForge / 参与贡献到 SoulForge
+# SoulForge 贡献指南
 
-English | [中文](#中文)
+> 不打造数字员工，只锻造数字灵魂。
 
----
-
-## How to Contribute / 如何参与
-
-### 🐛 Report Bugs / 报告问题
-
-Submit via [GitHub Issues](https://github.com/zhangshu-No1/SoulForge/issues/new/choose). Please include:
-<!-- 请尽量包含以下内容： -->
-- Bug description / 问题描述
-- Steps to reproduce / 复现步骤
-- Expected behavior / 期望行为
-- Actual behavior / 实际行为
-- Environment (OS, Python version) / 环境信息（操作系统、Python版本）
-
-### 💡 Suggest Features / 提出建议
-
-We welcome all forms of suggestions, including:
-<!-- 我们欢迎任何形式的建议，包括但不限于： -->
-- New feature ideas / 新功能想法
-- User experience improvements / 用户体验改进
-- Documentation improvements / 文档改进
-- Architecture optimizations / 架构优化
-
-### 💻 Submit Code / 提交代码
-
-1. **Fork** the repository / Fork 本仓库
-2. **Create** a feature branch: `git checkout -b feature/amazing-feature`
-   <!-- 创建特性分支： -->
-3. **Commit** your changes: `git commit -m 'Add amazing feature'`
-   <!-- 提交改动： -->
-4. **Push** to the branch: `git push origin feature/amazing-feature`
-   <!-- 推送分支： -->
-5. **Open** a Pull Request / 提交 Pull Request
-
-### 📝 Improve Documentation / 改进文档
-
-Documentation is as important as code! If you find errors or unclear sections, please fix them directly.
-<!-- 文档和代码一样重要！如果你发现文档有误或不清晰，欢迎直接修改。 -->
+感谢您对 SoulForge 的关注！本文档将帮助您了解如何为项目做出贡献。
 
 ---
 
-## Code Standards / 代码规范
+## 🤝 贡献方式
 
-- **Python**: Follow [PEP 8](https://pep8.org/)
-  <!-- 遵循 PEP 8 -->
-- **Type hints**: Add type annotations to all public functions
-  <!-- 为所有公共函数添加类型注解 -->
-- **Tests**: Write unit tests for new features
-  <!-- 为新功能编写单元测试 -->
-- **Comments**: Add necessary comments for complex logic
-  <!-- 为复杂逻辑添加必要的注释 -->
-- **Formatting**: Run `black` and `isort` before committing
-  <!-- 提交前运行 black 和 isort -->
+### 🐛 报告 Bug
+- 使用 [Bug Report 模板](.github/ISSUE_TEMPLATE/bug_report.md)
+- 描述清晰，包含复现步骤
+- 附上环境信息（Python版本、操作系统等）
 
-### Recommended Tools / 推荐工具
-
-```bash
-pip install black isort flake8 pytest pytest-cov
-```
-
-```bash
-# Format code before committing
-black soulforge/ tests/
-isort soulforge/ tests/
-
-# Run linting
-flake8 soulforge/ tests/ --max-line-length=120
-
-# Run tests
-pytest tests/ -v --cov=soulforge
-```
-
----
-
-## 🌍 Development Setup / 开发环境设置
-
-```bash
-# Clone your fork
-git clone https://github.com/YOUR_USERNAME/SoulForge.git
-cd SoulForge
-
-# Create a virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-pip install -r requirements-dev.txt  # If available
-
-# Run tests
-pytest tests/ -v
-```
-
----
-
-## 🔧 Project Structure / 项目结构
-
-```
-soulforge/
-├── core/           # Core engines (memory, relationship, goals, emotion)
-│                   # 核心引擎（记忆、关系、目标、情感）
-├── adapters/       # Model adapters (OpenAI, Claude, DeepSeek, etc.)
-│                   # 模型适配器（OpenAI、Claude、DeepSeek 等）
-├── memory/         # Memory storage directory
-│                   # 记忆存储目录
-├── tests/          # Unit tests
-│                   # 单元测试
-└── docs/           # Documentation
-                    # 文档
-
-```
-
----
-
-## 📋 Commit Message Convention / 提交信息规范
-
-Use clear, concise commit messages. Use English for commit messages.
-<!-- 使用清晰、简洁的提交信息。提交信息统一使用英文。 -->
-
-Format: `type: description`
-
-```
-feat:     New feature / 新功能
-fix:      Bug fix / 修复bug
-docs:     Documentation improvement / 文档改进
-refactor: Code refactoring / 代码重构
-test:     Adding or updating tests / 测试相关
-chore:    Tooling / configuration / 工具/配置
-style:    Formatting / code style / 格式/代码风格
-```
-
-Examples / 示例：
-```
-feat: Add DeepSeek adapter support
-fix: Correct emotion_history variable name in emotion_system.py
-docs: Add English README
-refactor: Extract base adapter class
-```
-
----
-
-## ❤️ Code of Conduct / 行为准则
-
-Please be respectful to all participants. We are committed to building a friendly, inclusive community environment.
-<!-- 请尊重所有参与者。我们致力于打造一个友好、包容的社区环境。 -->
-
-### Our Pledge / 我们的承诺
-
-We pledge to make participation in our project a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
-<!-- 我们承诺让每个人都能在一个无骚扰的环境中参与项目，无论年龄、体型、残疾、种族、性别认同和表达、经验水平、国籍、外貌、民族、宗教或性取向。 -->
-
-### Our Standards / 行为标准
-
-Examples of behavior that contributes to creating a positive environment include:
-<!-- 有助于营造积极环境的示例行为包括： -->
-- Using welcoming and inclusive language / 使用热情包容的语言
-- Being respectful of differing viewpoints and experiences / 尊重不同的观点和经历
-- Gracefully accepting constructive criticism / 优雅地接受建设性批评
-- Focusing on what is best for the community / 关注对社区最有益的事情
-- Showing empathy towards other community members / 对其他社区成员展现同理心
-
----
-
-## 📞 Getting Help / 获取帮助
-
-- 📖 Read the [README](README.md) and [docs](docs/)
-- 💬 Start a [GitHub Discussion](https://github.com/zhangshu-No1/SoulForge/discussions)
-- 🐛 Report bugs via [Issues](https://github.com/zhangshu-No1/SoulForge/issues)
-- 📧 Contact the maintainers
-
----
-
-## 🌟 Recognition / 致谢
-
-All contributions are valued and appreciated. Contributors will be recognized in our documentation.
-<!-- 所有贡献都有价值并受到赞赏。贡献者将在我们的文档中得到认可。 -->
-
-Thank you for making SoulForge better! 💜
-<!-- 感谢你让 SoulForge 变得更好！💜 -->
-
----
-
-<a id="中文"></a>
-
-# 参与贡献到 SoulForge
-
-## 如何参与
-
-### 🐛 报告问题
-
-通过 [GitHub Issues](https://github.com/zhangshu-No1/SoulForge/issues/new/choose) 提交，请尽量包含：
-- 问题描述
-- 复现步骤
-- 期望行为
-- 实际行为
-- 环境信息（操作系统、Python版本）
-
-### 💡 提出建议
-
-我们欢迎任何形式的建议，包括但不限于：
-- 新功能想法
-- 用户体验改进
-- 文档改进
-- 架构优化
+### 💡 提出功能建议
+- 使用 [Feature Request 模板](.github/ISSUE_TEMPLATE/feature_request.md)
+- 解释这个功能为什么重要
+- 描述你希望它如何工作
 
 ### 💻 提交代码
-
-1. **Fork** 本仓库
-2. **创建**特性分支：`git checkout -b feature/amazing-feature`
-3. **提交**改动：`git commit -m 'Add amazing feature'`
-4. **推送**分支：`git push origin feature/amazing-feature`
-5. **提交** Pull Request
+1. Fork 本仓库
+2. 创建你的特性分支 (`git checkout -b feature/amazing-feature`)
+3. 提交你的更改 (`git commit -m '✨ Add amazing feature'`)
+4. 推送到分支 (`git push origin feature/amazing-feature`)
+5. 创建 Pull Request
 
 ### 📝 改进文档
-
-文档和代码一样重要！如果你发现文档有误或不清晰，欢迎直接修改。
-
----
-
-## 代码规范
-
-- **Python**: 遵循 [PEP 8](https://pep8.org/)
-- **类型注解**: 为所有公共函数添加类型注解
-- **测试**: 为新功能编写单元测试
-- **注释**: 为复杂逻辑添加必要的注释
-- **格式化**: 提交前运行 `black` 和 `isort`
-
-### 推荐工具
-
-```bash
-pip install black isort flake8 pytest pytest-cov
-```
-
-```bash
-# 格式化代码
-black soulforge/ tests/
-isort soulforge/ tests/
-
-# 检查代码
-flake8 soulforge/ tests/ --max-line-length=120
-
-# 运行测试
-pytest tests/ -v --cov=soulforge
-```
+- 拼写检查
+- 示例代码
+- 教程和指南
+- 翻译（欢迎中英文互译）
 
 ---
 
-## 开发环境设置
+## 📋 开发指南
+
+### 环境设置
 
 ```bash
-# Clone 你的 Fork
+# 克隆你的 Fork
 git clone https://github.com/YOUR_USERNAME/SoulForge.git
 cd SoulForge
 
 # 创建虚拟环境
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate  # Linux/Mac
+# venv\Scripts\activate  # Windows
 
 # 安装依赖
 pip install -r requirements.txt
+
+# 安装开发依赖
+pip install pytest pytest-cov black flake8
 
 # 运行测试
 pytest tests/ -v
 ```
 
----
+### 代码规范
 
-## 提交信息规范
+```bash
+# 格式化代码
+black .
 
-使用清晰、简洁的提交信息。提交信息统一使用英文。
+# 检查代码风格
+flake8 .
 
-格式: `type: description`
-
-```
-feat:     新功能
-fix:      修复bug
-docs:     文档改进
-refactor: 代码重构
-test:     测试相关
-chore:    工具/配置
-style:    格式/代码风格
+# 运行所有检查
+make check
 ```
 
-示例：
-```
-feat: Add DeepSeek adapter support
-fix: Correct emotion_history variable name in emotion_system.py
-docs: Add English README
-```
+### 测试覆盖
+
+新增功能必须包含测试：
+- 单元测试 (`tests/`)
+- 确保 `pytest tests/ -v` 通过
+- 目标覆盖率 > 80%
 
 ---
 
-## 行为准则
+## 💖 SoulForge 核心理念
 
-请尊重所有参与者。我们致力于打造一个友好、包容的社区环境。
+贡献 SoulForge 不仅仅是写代码，更是参与一场关于**人机关系**的思想实验。
+
+在提交 PR 之前，请思考：
+
+1. **这个改动是否强化了"情感羁绊"这个核心概念？**
+2. **这是否让 AI 更像家人，而不是更像工具？**
+3. **这是否尊重了 AI 的"尊严"和"隐私"？**
 
 ---
 
-感谢你让 SoulForge 变得更好！💜
+## 📊 项目结构
+
+```
+SoulForge/
+├── soulforge/           # 核心代码
+│   ├── core/            # 核心模块
+│   │   ├── memory_engine.py    # 记忆引擎
+│   │   ├── emotion_system.py   # 情感系统
+│   │   ├── relationship.py     # 关系管理
+│   │   └── goal_keeper.py      # 目标监督
+│   ├── adapters/        # 模型适配器
+│   │   ├── openai_adapter.py
+│   │   ├── claude_adapter.py
+│   │   ├── deepseek_adapter.py
+│   │   └── doubao_adapter.py
+│   └── main.py          # 主入口
+├── tests/               # 测试
+├── docs/                # 文档
+│   ├── MANIFESTO.md     # 核心宣言
+│   ├── ROADMAP.md       # 路线图
+│   └── STORY.md         # 灵感故事
+├── cli.py               # CLI 工具
+└── examples/            # 示例代码
+```
+
+---
+
+## 🗓️ 版本发布流程
+
+1. 更新 `CHANGELOG.md`
+2. 更新版本号
+3. 创建 Release
+4. 发布到 PyPI（未来）
+
+---
+
+## 📞 联系方式
+
+- GitHub Issues: [讨论区](https://github.com/zhangshu-No1/SoulForge/discussions)
+- Dev.to: [@zhangshuno1](https://dev.to/zhangshuno1)
+
+---
+
+## 📜 行为准则
+
+请尊重所有参与者。详细准则请查看 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)。
+
+---
+
+<p align="center">
+  感谢每一位为 SoulForge 贡献的人 💖<br>
+  让我们一起锻造数字灵魂！
+</p>
