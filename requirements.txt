@@ -1,20 +1,13 @@
-# SoulForge 依赖
-
-# AI模型
+# Core dependencies
 openai>=1.0.0
 anthropic>=0.18.0
-
-# 数据处理
-pyyaml>=6.0
-markdown>=3.5
-
-# 定时任务
-schedule>=1.2.0
-
-# Web框架（Phase 3）
-# flask>=3.0.0
-# streamlit>=1.30.0
-
-# 工具
 python-dotenv>=1.0.0
-rich>=13.0.0
+pyyaml>=6.0
+
+# Testing
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Code quality
+ruff>=0.1.0
+black>=23.0.0

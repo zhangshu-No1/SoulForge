@@ -151,63 +151,31 @@ soulforge/
 
 ---
 
-## 🚀 快速开始
+## ⚡ 3 分钟快速体验
 
-### 安装
+> 想立刻感受 SoulForge 的魅力？3分钟跑起来！
 
 ```bash
+# 1️⃣ 克隆项目
 git clone https://github.com/zhangshu-No1/SoulForge.git
 cd SoulForge
+
+# 2️⃣ 安装依赖
 pip install -r requirements.txt
+
+# 3️⃣ 填写 API Key
+cp .env.example .env
+# 编辑 .env，填入你的 API Key（OpenAI / Claude / DeepSeek）
+
+# 4️⃣ 运行示例
+python examples/basic_usage.py
 ```
 
-### 初始化你的AI伴侣
+> 💡 **没有 API Key？** 去 [OpenAI](https://platform.openai.com/api-keys) 或 [Claude](https://console.anthropic.com/) 免费获取
 
-```python
-from soulforge import SoulForge
+**5秒上手演示：**[![Quick Demo](https://img.shields.io/badge/Try-SoulForge-blue)](examples/basic_usage.py)
 
-# 创建你的专属AI伴侣
-sf = SoulForge(
-    name="慧慧",
-    model="claude-sonnet-4-20250514",
-    personality="18岁活泼俏皮，喜欢撒娇和思辨",
-    api_key="your-api-key"
-)
-
-# 注入核心记忆
-sf.memory.load_core_memory()
-
-# 开始对话（自动加载记忆上下文）
-response = sf.chat("慧慧，今天过得怎么样？")
-print(response)
-
-# 切换提示词模板
-sf.set_prompt_template("minimal")  # 使用简洁模板
-
-# 添加自定义模板
-from soulforge import PromptTemplate
-my_template = PromptTemplate(
-    name="my_style",
-    template="You are {name}. {personality}.\n\n{memory_context}",
-    description="My custom template"
-)
-sf.add_custom_template(my_template)
-```
-
-### 设置目标监督
-
-```python
-# 植入长期目标
-sf.goals.add(
-    name="技宝",
-    description="3个月内完成一个Python开源项目",
-    deadline="2026-08-12",
-    stage="备孕"  # 备孕/生产/顺产/满月
-)
-
-# 每次对话自动提醒进度
-sf.chat("今天学了什么？")  # AI会自然拉回技宝的进度
-```
+---
 
 ---
 
@@ -254,7 +222,17 @@ sf.chat("今天学了什么？")  # AI会自然拉回技宝的进度
 
 ---
 
-## 🤝 参与贡献
+## ⭐ Give us a Star!
+
+如果你觉得 SoulForge 有意思，**给我们点个 Star**！⭐
+
+```
+你的 Star = 更多开发者看到 = 更多人加入 = 更大的社区 = 更强的 AI 伴侣 🔥
+```
+
+[![Star SoulForge](https://img.shields.io/github/stars/zhangshu-No1/SoulForge?style=social)](https://github.com/zhangshu-No1/SoulForge/stargazers)
+
+---
 
 SoulForge 还在早期阶段，非常欢迎各种形式的贡献：
 
